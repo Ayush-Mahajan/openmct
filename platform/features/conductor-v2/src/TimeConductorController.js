@@ -24,7 +24,8 @@ define(
     [],
     function () {
 
-        var SIX_HOURS = 6 * 60 * 60 * 1000;
+        var SIX_HOURS = 6 * 60 * 60 * 1000,
+            SIXTY_SECONDS = 60 * 1000;
 
         function TimeConductorController($scope, $timeout, conductor) {
             var self = this;
@@ -88,7 +89,8 @@ define(
         TimeConductorController.prototype.initialize = function () {
             var now = Math.ceil(Date.now() / 1000) * 1000;
             //Set the time conductor to some default
-            this.conductor.bounds({start: now - SIX_HOURS, end: now});
+            //this.conductor.bounds({start: now - SIX_HOURS, end: now});
+            this.conductor.bounds({start: now - SIXTY_SECONDS, end: now});
         };
 
         TimeConductorController.prototype.validateStart = function (start) {
